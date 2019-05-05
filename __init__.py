@@ -13,7 +13,7 @@ def load_menu():
         os.mkdir('saves')
     if list_saves():
         menu['CONTINUE'] = resume
-    menu['NEW'] = new_game
+    menu['NEW GAME'] = new_game
     menu['SETTINGS'] = settings
     menu['EXIT'] = sys.exit
     print(', '.join(menu.keys()))
@@ -35,10 +35,10 @@ def load_save(save):
 def new_game():
     while True:
         file_name = input('Enter the name for the new save file:\n')
-        if not os.path.isfile(f'{file_name}.json'):
+        if not os.path.isfile(f'./saves/{file_name}.json'):
             break
         print('That save name is already in use.')
-    open(f'{file_name}.json', 'w')
+    open(f'./saves/{file_name}.json', 'w')
 
 
 def resume():
