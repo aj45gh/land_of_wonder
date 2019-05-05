@@ -33,8 +33,12 @@ def load_save(save):
 
 
 def new_game():
-    print('new game')
-    pass
+    while True:
+        file_name = input('Enter the name for the new save file:\n')
+        if not os.path.isfile(f'{file_name}.json'):
+            break
+        print('That save name is already in use.')
+    open(f'{file_name}.json', 'w')
 
 
 def resume():
