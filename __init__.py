@@ -15,7 +15,7 @@ def load_menu():
         menu['CONTINUE'] = resume
     menu['NEW GAME'] = new_game
     menu['SETTINGS'] = settings
-    menu['EXIT'] = sys.exit
+    menu['EXIT'] = exit_game
     print(', '.join(menu.keys()))
     while True:
         action = input()
@@ -42,13 +42,17 @@ def new_game():
 
 
 def resume():
-    print('continue')
-    pass
+    saves = ', '.join([save[:-5] for save in list_saves()])
+    print(saves)
 
 
 def settings():
     print('settings')
-    pass
+
+
+def exit_game():
+    print('exit')
+    sys.exit()
 
 
 if __name__ == '__main__':
